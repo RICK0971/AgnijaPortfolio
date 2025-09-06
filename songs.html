@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song Performances - Agnija's Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B6B',
+                        secondary: '#4ECDC4',
+                        accent: '#FFD166',
+                        dark: '#1A535C',
+                        light: '#F7FFF7',
+                        coral: '#FF6B6B',
+                        teal: '#4ECDC4',
+                        yellow: '#FFD166',
+                        navy: '#1A535C',
+                        mint: '#E0F7FA'
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.4s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .image-placeholder {
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        
+        .image-placeholder:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="bg-light text-dark font-poppins">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="main.html" class="flex-shrink-0 flex items-center">
+                        <span class="text-2xl font-bold text-primary">Agnija</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="main.html" class="text-gray-700 hover:text-primary font-medium">← Back to Portfolio</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-primary">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="main.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">← Back to Portfolio</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg pt-32 pb-20 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex justify-center mb-6">
+                    <div class="bg-white bg-opacity-20 p-4 rounded-full">
+                        <i class="fas fa-music text-4xl"></i>
+                    </div>
+                </div>
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">Song Performances</h1>
+                <p class="text-xl md:text-2xl mb-8">A collection of my musical journey through vocal performances</p>
+                <p class="text-lg opacity-90">From cultural events to competitions, each performance tells a story of passion and dedication</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Song Journey Overview -->
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-dark mb-4">My Musical Journey</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-8"></div>
+                <p class="text-lg text-gray-700 max-w-4xl mx-auto">
+                    Music has always been my way of expressing emotions and connecting with audiences. From traditional melodies to contemporary compositions, 
+                    each performance has been a unique experience of sharing stories through song. My journey includes various cultural events, 
+                    competitions, and special performances that have shaped my growth as a vocalist.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Performances -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 text-navy">Featured Performances</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Performance 1 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                    <div class="image-placeholder">
+                        <div class="w-full h-64 rounded-lg overflow-hidden">
+                            <img src="song 1.jpg" alt="Cultural Event Song Performance" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-navy">Cultural Event Performance</h3>
+                        <p class="text-gray-600 mb-4">A mesmerizing blend of traditional and contemporary music that captivated the audience.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Traditional</span>
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Solo</span>
+                        </div>
+                        <div class="text-sm text-gray-500">
+                            <i class="fas fa-calendar mr-2"></i>December 2023
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Performance 2 -->
+                <a href="https://drive.google.com/file/d/15UKWWMHi5oYO5hAiEtRpL_yt70rbVRKX/view?usp=sharing" target="_blank" rel="noopener" class="block hover:no-underline">
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                        <div class="image-placeholder">
+                            <div class="w-full h-64 bg-gradient-to-br from-pink-400 to-red-500 flex items-center justify-center">
+                                <i class="fas fa-trophy text-6xl text-white opacity-80"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-navy">GAIL Events</h3>
+                            <p class="text-gray-600 mb-4">Featured performer showcasing artistic excellence and vocal versatility.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm">Contemporary</span>
+                                <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Award Winner</span>
+                            </div>
+                            <div class="text-sm text-gray-500">
+                                <i class="fas fa-calendar mr-2"></i>March 2024
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Performance 3 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                    <div class="image-placeholder">
+                        <div class="w-full h-64 bg-gradient-to-br from-blue-400 to-teal-500 flex items-center justify-center">
+                            <i class="fas fa-users text-6xl text-white opacity-80"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-navy">School Annual Day</h3>
+                        <p class="text-gray-600 mb-4">Lead vocalist in the school choir, performing classical compositions.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Classical</span>
+                            <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm">Group</span>
+                        </div>
+                        <div class="text-sm text-gray-500">
+                            <i class="fas fa-calendar mr-2"></i>November 2023
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Achievements Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 text-navy">Achievements & Recognition</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Achievement 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center card-hover">
+                    <div class="bg-gradient-to-br from-yellow-400 to-orange-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-trophy text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-navy">Third Place</h3>
+                    <p class="text-gray-600"> State Level Group Song Competition 2023</p>
+                </div>
+
+                <!-- Achievement 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center card-hover">
+                    <div class="bg-gradient-to-br from-purple-400 to-pink-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-medal text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-navy">Third Place</h3>
+                    <p class="text-gray-600">National Level Group Song Competition 2024</p>
+                </div>
+
+                <!-- Achievement 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center card-hover">
+                    <div class="bg-gradient-to-br from-blue-400 to-teal-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-star text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-navy">Participant</h3>
+                    <p class="text-gray-600">AFS Intercultural Programs India 2023</p>
+                </div>
+            </div>
+            
+            <!-- Certificate Link -->
+            <div class="text-center mt-12">
+                <a href="https://drive.google.com/file/d/123MOn3QGrC2MyZBXjgyVdK03fw-Rocb0/view?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                    <i class="fas fa-download mr-3 text-lg"></i>
+                    View Competition Certificate
+                    <i class="fas fa-external-link-alt ml-3 text-sm"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Portfolio Button -->
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <a href="main.html" class="inline-flex items-center bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                <i class="fas fa-arrow-left mr-3 text-xl"></i>
+                Back to Portfolio
+                <i class="fas fa-home ml-3"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <a href="main.html" class="text-2xl font-bold text-indigo-400">Agnija</a>
+                    <p class="text-gray-400 mt-2">Performer | Athlete | Changemaker</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="main.html" class="hover:text-indigo-400 transition">Portfolio</a>
+                    <a href="performances.html" class="hover:text-indigo-400 transition">Dance</a>
+                    <a href="songs.html" class="hover:text-indigo-400 transition">Songs</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Agnija's Portfolio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-white', 'shadow-lg');
+            } else {
+                nav.classList.remove('bg-white', 'shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>

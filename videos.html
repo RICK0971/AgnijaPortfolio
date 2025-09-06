@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Blogs - Agnija's Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B6B',
+                        secondary: '#4ECDC4',
+                        accent: '#FFD166',
+                        dark: '#1A535C',
+                        light: '#F7FFF7',
+                        coral: '#FF6B6B',
+                        teal: '#4ECDC4',
+                        yellow: '#FFD166',
+                        navy: '#1A535C',
+                        mint: '#E0F7FA'
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #1A535C 0%, #4ECDC4 100%);
+        }
+        
+        .section-bg {
+            background: linear-gradient(135deg, #F7FFF7 0%, #E0F7FA 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #FF6B6B;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .video-card {
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        
+        .video-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .play-button {
+            transition: all 0.3s ease;
+        }
+        
+        .video-card:hover .play-button {
+            transform: scale(1.2);
+            background-color: #FF6B6B;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #FFD166);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-light text-dark font-poppins">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="main.html" class="flex-shrink-0 flex items-center">
+                        <span class="text-2xl font-bold text-primary">Agnija</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="main.html" class="nav-link text-gray-700 hover:text-primary font-medium">← Back to Portfolio</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-primary">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="main.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">← Back to Portfolio</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg pt-32 pb-20 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="mb-8">
+                <i class="fas fa-video text-6xl mb-6"></i>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Video Blogs</h1>
+                <p class="text-xl md:text-2xl">Sharing thoughts, perspectives, and insights through video content</p>
+            </div>
+            <p class="text-lg max-w-3xl mx-auto">
+                A space where I share my thoughts and opinions on general topics. These videos reflect my perspectives, 
+                communication style, and vision for various aspects of life and society.
+            </p>
+        </div>
+    </section>
+
+    <!-- Video Categories -->
+    <section class="py-16 section-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-dark mb-4">Video Categories</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover text-center">
+                    <div class="text-primary text-5xl mb-6">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Personal Growth</h3>
+                    <p class="text-gray-700">Insights on self-development, motivation, and personal transformation</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover text-center">
+                    <div class="text-primary text-5xl mb-6">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Social Issues</h3>
+                    <p class="text-gray-700">Discussions on current events, social justice, and community matters</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover text-center">
+                    <div class="text-primary text-5xl mb-6">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Life Balance</h3>
+                    <p class="text-gray-700">Tips on managing academics, extracurriculars, and personal life</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Videos -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-dark mb-4">Featured Videos</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Video 1 -->
+                <div class="video-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="relative">
+                        <div class="w-full h-48 bg-red-100 flex items-center justify-center relative">
+                            <div class="play-button w-16 h-16 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
+                                <i class="fas fa-play text-red-500 text-xl ml-1"></i>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-red-500 text-white px-2 py-1 rounded text-sm font-medium">
+                            Featured
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">"Finding Your Voice"</h3>
+                        <p class="text-gray-700 mb-4">The power of self-expression and authentic communication</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">Duration: 8:45</span>
+                            <span class="text-sm text-gray-500">Views: 1.2K</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 2 -->
+                <div class="video-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="relative">
+                        <div class="w-full h-48 bg-blue-100 flex items-center justify-center relative">
+                            <div class="play-button w-16 h-16 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
+                                <i class="fas fa-play text-blue-500 text-xl ml-1"></i>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-blue-500 text-white px-2 py-1 rounded text-sm font-medium">
+                            Popular
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">"Balancing Act"</h3>
+                        <p class="text-gray-700 mb-4">Managing academics and extracurriculars effectively</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">Duration: 12:30</span>
+                            <span class="text-sm text-gray-500">Views: 2.1K</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 3 -->
+                <div class="video-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="relative">
+                        <div class="w-full h-48 bg-purple-100 flex items-center justify-center relative">
+                            <div class="play-button w-16 h-16 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
+                                <i class="fas fa-play text-purple-500 text-xl ml-1"></i>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-purple-500 text-white px-2 py-1 rounded text-sm font-medium">
+                            New
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">"Breaking Barriers"</h3>
+                        <p class="text-gray-700 mb-4">Women in sports and societal perceptions</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">Duration: 15:20</span>
+                            <span class="text-sm text-gray-500">Views: 856</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 4 -->
+                <div class="video-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="relative">
+                        <div class="w-full h-48 bg-green-100 flex items-center justify-center relative">
+                            <div class="play-button w-16 h-16 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
+                                <i class="fas fa-play text-green-500 text-xl ml-1"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">"The Power of Music"</h3>
+                        <p class="text-gray-700 mb-4">How music influences emotions and connects people</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">Duration: 10:15</span>
+                            <span class="text-sm text-gray-500">Views: 1.8K</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 5 -->
+                <div class="video-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="relative">
+                        <div class="w-full h-48 bg-yellow-100 flex items-center justify-center relative">
+                            <div class="play-button w-16 h-16 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
+                                <i class="fas fa-play text-yellow-500 text-xl ml-1"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">"Leadership Lessons"</h3>
+                        <p class="text-gray-700 mb-4">Key insights from my role as Cultural Director</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">Duration: 14:30</span>
+                            <span class="text-sm text-gray-500">Views: 1.5K</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 6 -->
+                <div class="video-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="relative">
+                        <div class="w-full h-48 bg-pink-100 flex items-center justify-center relative">
+                            <div class="play-button w-16 h-16 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
+                                <i class="fas fa-play text-pink-500 text-xl ml-1"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">"Community Impact"</h3>
+                        <p class="text-gray-700 mb-4">Making a difference through service and volunteering</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">Duration: 11:45</span>
+                            <span class="text-sm text-gray-500">Views: 967</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Series -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-dark mb-4">Video Series</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Series 1 -->
+                <div class="bg-gradient-to-br from-red-50 to-red-100 p-8 rounded-xl">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-red-500 text-white p-3 rounded-full mr-4">
+                            <i class="fas fa-microphone text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">"Voice of Change"</h3>
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        A series exploring social issues, activism, and the power of youth voices in creating positive change.
+                    </p>
+                    <div class="flex items-center text-red-600 font-medium">
+                        <span>6 Episodes</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </div>
+                </div>
+                
+                <!-- Series 2 -->
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-500 text-white p-3 rounded-full mr-4">
+                            <i class="fas fa-graduation-cap text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">"Student Life"</h3>
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        Practical advice and insights for students on academics, extracurriculars, and personal development.
+                    </p>
+                    <div class="flex items-center text-blue-600 font-medium">
+                        <span>8 Episodes</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-primary text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-6">Subscribe to My Channel</h2>
+            <p class="text-xl mb-8">
+                Stay updated with my latest videos on personal growth, social issues, and life insights.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#" class="bg-white text-primary hover:bg-gray-100 font-bold py-3 px-8 rounded-full transition duration-300">
+                    <i class="fab fa-youtube mr-2"></i>Subscribe on YouTube
+                </a>
+                <a href="main.html" class="bg-transparent border-2 border-white hover:bg-white hover:text-primary text-white font-bold py-3 px-8 rounded-full transition duration-300">
+                    Back to Portfolio
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <a href="main.html" class="text-2xl font-bold text-primary">Agnija</a>
+                    <p class="text-gray-400 mt-2">Performer | Athlete | Changemaker</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="main.html" class="hover:text-primary transition">Portfolio</a>
+                    <a href="essays.html" class="hover:text-primary transition">Essays</a>
+                    <a href="#" class="hover:text-primary transition">Videos</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Agnija's Portfolio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-white', 'shadow-lg');
+            } else {
+                nav.classList.remove('bg-white', 'shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>

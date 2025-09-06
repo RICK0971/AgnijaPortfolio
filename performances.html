@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dance Performances - Agnija's Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B6B',
+                        secondary: '#4ECDC4',
+                        accent: '#FFD166',
+                        dark: '#1A535C',
+                        light: '#F7FFF7',
+                        coral: '#FF6B6B',
+                        teal: '#4ECDC4',
+                        yellow: '#FFD166',
+                        navy: '#1A535C',
+                        mint: '#E0F7FA'
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #1A535C 0%, #4ECDC4 100%);
+        }
+        
+        .section-bg {
+            background: linear-gradient(135deg, #F7FFF7 0%, #E0F7FA 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #FF6B6B;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .gallery-item {
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .image-placeholder {
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        
+        .image-placeholder:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .performance-card:hover .image-placeholder,
+        .service-card:hover .image-placeholder,
+        .experience-card:hover .image-placeholder {
+            transform: scale(1.08);
+        }
+        
+        .card-hover {
+            transition: all 0.4s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #FFD166);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .skill-bar {
+            height: 10px;
+            border-radius: 5px;
+            background: #e0e0e0;
+            overflow: hidden;
+        }
+        
+        .skill-level {
+            height: 100%;
+            border-radius: 5px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #FF6B6B;
+        }
+        
+        .pulse {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #FF6B6B;
+            box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7);
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(0.9);
+                box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 12px rgba(255, 107, 107, 0);
+            }
+            100% {
+                transform: scale(0.9);
+                box-shadow: 0 0 0 0 rgba(255, 107, 107, 0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-light text-dark font-poppins">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="main.html" class="flex-shrink-0 flex items-center">
+                        <span class="text-2xl font-bold text-primary">Agnija</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="main.html" class="nav-link text-gray-700 hover:text-primary font-medium">← Back to Portfolio</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-primary">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="main.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">← Back to Portfolio</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg pt-32 pb-20 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="mb-8">
+                    <i class="fas fa-child text-6xl mb-6"></i>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Dance Performances</h1>
+                <p class="text-xl md:text-2xl mb-8">Expressing emotions through movement and rhythm</p>
+                <p class="text-lg max-w-3xl mx-auto">A collection of my dance performances showcasing different styles, from contemporary solo pieces to traditional group performances. Each piece tells a unique story through movement and expression.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dance Journey Overview -->
+    <section class="py-20 section-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-dark mb-4">My Dance Journey</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <p class="text-lg mb-6">Dance has been my passion since childhood, allowing me to express emotions and tell stories through movement. I've trained in various styles including contemporary, traditional, and fusion dance forms.</p>
+                <p class="text-lg mb-6">Each performance is a unique experience that combines technical skill with emotional expression. From school annual days to state-level competitions, I've had the opportunity to showcase my talent and grow as a performer.</p>
+                <p class="text-lg">My dance journey has taught me discipline, creativity, and the power of storytelling through movement. It's not just about the steps, but about connecting with the audience and conveying emotions that words cannot express.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Performances -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-dark mb-4">Featured Performances</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Traditional Solo -->
+                <a href="https://drive.google.com/file/d/1e6TmxB0P5DeSXg-ot301I866ikxvM1z8/view?usp=sharing" target="_blank" class="performance-card bg-white rounded-xl shadow-lg overflow-hidden card-hover block hover:no-underline">
+                    <div class="relative">
+                        <div class="w-full h-64 rounded-lg overflow-hidden image-placeholder">
+                            <img src="Traditional Solo.jpg" alt="Traditional Solo Dance Performance" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute top-4 right-4 bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            Traditional
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-gray-800">Traditional Solo</h3>
+                        <p class="text-gray-700 mb-4">An expressive traditional solo piece performed at an event, showcasing fluid movements and emotional storytelling through classical dance.</p>
+                        <div class="flex items-center text-purple-600 mb-4">
+                            <i class="fas fa-calendar mr-2"></i>
+                            <span>December 2023</span>
+                        </div>
+                        <div class="flex items-center text-purple-600 mb-4">
+                            <i class="fas fa-external-link-alt mr-2"></i>
+                            <span class="text-sm font-medium">Click to view performance</span>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Traditional</span>
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Solo</span>
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Classical</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Traditional Group -->
+                <a href="https://drive.google.com/file/d/12yl-XHTg5b5fuT-n4eJxNzBX9O-XLK_g/view?usp=sharing" target="_blank" class="performance-card bg-white rounded-xl shadow-lg overflow-hidden card-hover block hover:no-underline">
+                    <div class="relative">
+                        <div class="w-full h-64 rounded-lg overflow-hidden">
+                            <img src="Traditional Group.jpg" alt="Traditional Group Dance Performance" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            Traditional
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-gray-800">Traditional Group</h3>
+                        <p class="text-gray-700 mb-4">A vibrant traditional group performance at the interschool cultural festival, celebrating cultural heritage through dance.</p>
+                        <div class="flex items-center text-blue-600 mb-4">
+                            <i class="fas fa-calendar mr-2"></i>
+                            <span>March 2023</span>
+                        </div>
+                        <div class="flex items-center text-blue-600 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Interschool Cultural Festival</span>
+                        </div>
+                        <div class="flex items-center text-blue-600 mb-4">
+                            <i class="fas fa-external-link-alt mr-2"></i>
+                            <span class="text-sm font-medium">Click to view performance</span>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Traditional</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Group</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Cultural</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Storytelling Through Movement -->
+                <a href="https://drive.google.com/drive/folders/your-storytelling-performance-folder-id" target="_blank" class="performance-card bg-white rounded-xl shadow-lg overflow-hidden card-hover block hover:no-underline">
+                    <div class="relative">
+                        <div class="w-full h-64 bg-gradient-to-br from-pink-100 to-pink-200 flex items-center justify-center">
+                            <div class="text-center text-pink-700">
+                                <i class="fas fa-play-circle text-6xl mb-4"></i>
+                                <p class="text-lg font-semibold">Click to Watch</p>
+                                <p class="text-sm">Storytelling Performance</p>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-pink-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            Award-Winning
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-gray-800">Storytelling Through Movement</h3>
+                        <p class="text-gray-700 mb-4">An award-winning choreography piece that tells a powerful story through innovative movement and creative expression.</p>
+                        <div class="flex items-center text-pink-600 mb-4">
+                            <i class="fas fa-calendar mr-2"></i>
+                            <span>June 2023</span>
+                        </div>
+                        <div class="flex items-center text-pink-600 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>State Level Competition</span>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm">Contemporary</span>
+                            <span class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm">Storytelling</span>
+                            <span class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm">Award-Winning</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Certificates Link -->
+            <div class="text-center mt-12">
+                <a href="https://drive.google.com/file/d/1x-EtyPmTLEBH2pJ6pxtE-PUo8CBZFE5U/view?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                    <i class="fas fa-certificate mr-3 text-xl"></i>
+                    View Dance Performance Certificates
+                    <i class="fas fa-external-link-alt ml-3 text-sm"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Dance Styles -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-dark mb-4">Dance Styles</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Contemporary -->
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
+                    <div class="text-center mb-6">
+                        <div class="bg-purple-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-child text-3xl text-purple-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-purple-600">Contemporary</h3>
+                    </div>
+                    <p class="text-gray-700 text-center">Modern dance form that combines elements of classical, modern, and jazz dance. Focuses on fluid movements and emotional expression.</p>
+                </div>
+
+                <!-- Traditional -->
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
+                    <div class="text-center mb-6">
+                        <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-music text-3xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-blue-600">Traditional</h3>
+                    </div>
+                    <p class="text-gray-700 text-center">Cultural dance forms that preserve heritage and traditions. Includes classical and folk dance styles from various regions.</p>
+                </div>
+
+                <!-- Fusion -->
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
+                    <div class="text-center mb-6">
+                        <div class="bg-pink-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-star text-3xl text-pink-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-pink-600">Fusion</h3>
+                    </div>
+                    <p class="text-gray-700 text-center">Innovative dance style that combines elements from different dance forms, creating unique and creative performances.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Portfolio -->
+    <section class="py-16 bg-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-6">Explore More of My Portfolio</h2>
+            <p class="text-xl mb-8">Discover my other talents and achievements across music, athletics, leadership, and community service.</p>
+            <a href="main.html" class="inline-flex items-center bg-white text-primary hover:bg-gray-100 font-bold py-4 px-8 rounded-full transition duration-300 shadow-lg">
+                <i class="fas fa-arrow-left mr-3"></i>
+                Back to Portfolio
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <a href="main.html" class="text-2xl font-bold text-indigo-400">Agnija</a>
+                    <p class="text-gray-400 mt-2">Performer | Athlete | Changemaker</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="main.html" class="hover:text-indigo-400 transition">Portfolio</a>
+                    <a href="essays.html" class="hover:text-indigo-400 transition">Essays</a>
+                    <a href="videos.html" class="hover:text-indigo-400 transition">Videos</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Agnija's Portfolio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-white', 'shadow-lg');
+            } else {
+                nav.classList.remove('bg-white', 'shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
